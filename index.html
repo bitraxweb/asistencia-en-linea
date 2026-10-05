@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Asistencia Independiente para Usuarios de Tarjetas | Argentina</title>
+
+    <meta name="description" content="Servicio independiente de orientación para consultas relacionadas con cargos, compras no reconocidas, movimientos y soporte general para usuarios de tarjetas en Argentina.">
+
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #ffffff;
+            color: #262626;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* HEADER */
+
+        header {
+            width: 100%;
+            background: rgba(255,255,255,.97);
+            border-bottom: 1px solid #eeeeee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1180px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 21px;
+            font-weight: 800;
+            color: #d9341e;
+        }
+
+        .logo-icon {
+            width: 39px;
+            height: 39px;
+            background: linear-gradient(135deg, #ff7a00, #e1261c);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #363636;
+            font-size: 14px;
+            font-weight: 600;
+            transition: .2s;
+        }
+
+        nav a:hover {
+            color: #e44227;
+        }
+
+        .nav-button {
+            background: linear-gradient(135deg, #ff7500, #e52e1d);
+            color: white !important;
+            padding: 11px 20px;
+            border-radius: 9px;
+        }
+
+        /* HERO */
+
+        .hero {
+            background:
+                radial-gradient(circle at 85% 20%, rgba(255,120,0,.18), transparent 32%),
+                radial-gradient(circle at 10% 80%, rgba(225,38,28,.08), transparent 30%),
+                linear-gradient(135deg, #fff8f2, #ffffff);
+            padding: 95px 20px 90px;
+        }
+
+        .hero-container {
+            max-width: 1180px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .badge {
+            display: inline-block;
+            color: #d83b22;
+            background: #fff0e9;
+            border: 1px solid #ffd5c5;
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        h1 {
+            font-size: 50px;
+            line-height: 1.08;
+            letter-spacing: -1.7px;
+            margin-bottom: 22px;
+            color: #242424;
+        }
+
+        h1 span {
+            color: #e23b21;
+        }
+
+        .hero-text {
+            font-size: 18px;
+            color: #626262;
+            max-width: 650px;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 15px 27px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #ff7900, #df2e1e);
+            color: #fff;
+            font-weight: 700;
+            box-shadow: 0 10px 28px rgba(223,46,30,.18);
+            transition: .25s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px rgba(223,46,30,.25);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 10px;
+            border: 1px solid #e3e3e3;
+            color: #333;
+            background: white;
+            font-weight: 700;
+        }
+
+        /* HERO CARD */
+
+        .support-card {
+            background: white;
+            border-radius: 22px;
+            padding: 34px;
+            box-shadow: 0 25px 70px rgba(37,37,37,.12);
+            border: 1px solid #f2e8e2;
+        }
+
+        .support-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ff7b00, #dc2f1d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            font-size: 28px;
+        }
+
+        .support-card h3 {
+            font-size: 24px;
+            margin-bottom: 11px;
+        }
+
+        .support-card p {
+            color: #6a6a6a;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .support-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 14px 0;
+            font-size: 14px;
+        }
+
+        .check {
+            color: #e84427;
+            font-weight: 800;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 85px 20px;
+        }
+
+        .container {
+            max-width: 1180px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title span {
+            color: #e43d22;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #717171;
+        }
+
+        /* SERVICES */
+
+        #servicios {
+            background: #fafafa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #eeeeee;
+            border-radius: 17px;
+            transition: .25s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,.07);
+            border-color: #ffd5c4;
+        }
+
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 13px;
+            background: #fff1eb;
+            margin-bottom: 20px;
+            font-size: 23px;
+        }
+
+        .service-card h3 {
+            font-size: 18px;
+            margin-bottom: 9px;
+        }
+
+        .service-card p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* PROCESS */
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,#ff8000,#e33620);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            margin-bottom: 7px;
+        }
+
+        .step p {
+            color: #777;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+
+        .contact-section {
+            background: linear-gradient(135deg,#bf281d,#f36d00);
+            color: white;
+            padding: 80px 20px;
+        }
+
+        .contact-box {
+            max-width: 850px;
+            text-align: center;
+            margin: auto;
+        }
+
+        .contact-box h2 {
+            font-size: 38px;
+            margin-bottom: 14px;
+        }
+
+        .contact-box p {
+            opacity: .92;
+            margin-bottom: 27px;
+        }
+
+        .contact-btn {
+            background: white;
+            color: #da351e;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: 800;
+            transition: .2s;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* DISCLAIMER */
+
+        .disclaimer {
+            background: #fff8f5;
+            border: 1px solid #ffe0d5;
+            padding: 24px;
+            border-radius: 12px;
+            margin-top: 40px;
+            color: #666;
+            font-size: 13px;
+            line-height: 1.8;
+        }
+
+        .disclaimer strong {
+            color: #333;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #1f1f1f;
+            padding: 45px 20px;
+            color: #aaa;
+        }
+
+        .footer-container {
+            max-width: 1180px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        footer a {
+            color: #ddd;
+        }
+
+        .footer-small {
+            max-width: 650px;
+            font-size: 12px;
+            line-height: 1.7;
+            margin-top: 15px;
+        }
+
+        /* FLOATING WHATSAPP */
+
+        .whatsapp-float {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            background: #25D366;
+            color: white;
+            padding: 14px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            box-shadow: 0 8px 25px rgba(0,0,0,.22);
+            z-index: 999;
+            transition: .2s;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px) {
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            nav ul {
+                display: none;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .hero {
+                padding-top: 65px;
+            }
+
+            h1 {
+                font-size: 34px;
+                letter-spacing: -1px;
+            }
+
+            .hero-text {
+                font-size: 16px;
+            }
+
+            .services-grid,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .contact-box h2 {
+                font-size: 30px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                text-align: center;
+                width: 100%;
+            }
+
+            .whatsapp-float {
+                left: 18px;
+                right: 18px;
+                bottom: 15px;
+                text-align: center;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <a href="#" class="logo">
+            <div class="logo-icon">S</div>
+            Asistencia Tarjetas
+        </a>
+
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#como-funciona">Cómo funciona</a></li>
+                <li>
+                    <a class="nav-button"
+                       href="https://wa.me/5493876570467?text=Hola%2C%20quisiera%20realizar%20una%20consulta%20sobre%20un%20cargo%20en%20mi%20tarjeta."
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Contáctanos
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero" id="inicio">
+
+        <div class="hero-container">
+
+            <div>
+
+                <div class="badge">
+                    Atención independiente en Argentina
+                </div>
+
+                <h1>
+                    ¿Necesitás orientación por un
+                    <span>cargo en tu tarjeta?</span>
+                </h1>
+
+                <p class="hero-text">
+                    Brindamos asistencia independiente para personas que necesitan
+                    orientación ante compras no reconocidas, cargos que desconocen,
+                    movimientos de tarjeta y consultas relacionadas con el proceso
+                    de reclamo ante entidades emisoras.
+                </p>
+
+                <div class="buttons">
+
+                    <a
+                       class="btn-primary"
+                       href="https://wa.me/5493876570467?text=Hola%2C%20quisiera%20realizar%20una%20consulta%20sobre%20mi%20tarjeta."
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Contáctanos
+                    </a>
+
+                    <a href="#servicios" class="btn-secondary">
+                        Ver servicios
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="support-card">
+
+                <div class="support-icon">
+                    💳
+                </div>
+
+                <h3>Orientación personalizada</h3>
+
+                <p>
+                    Explicanos tu situación y te ayudamos a identificar
+                    cuáles son los pasos que podés considerar.
+                </p>
+
+                <div class="support-item">
+                    <span class="check">✓</span>
+                    <span>Consultas por compras no reconocidas.</span>
+                </div>
+
+                <div class="support-item">
+                    <span class="check">✓</span>
+                    <span>Orientación sobre cargos y movimientos.</span>
+                </div>
+
+                <div class="support-item">
+                    <span class="check">✓</span>
+                    <span>Información sobre procesos de reclamo.</span>
+                </div>
+
+                <div class="support-item">
+                    <span class="check">✓</span>
+                    <span>Atención para usuarios de toda Argentina.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SERVICES -->
+
+    <section id="servicios">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Servicios</span>
+
+                <h2>
+                    ¿En qué podemos orientarte?
+                </h2>
+
+                <p>
+                    Atención independiente enfocada en brindar información
+                    clara sobre situaciones relacionadas con tarjetas.
+                </p>
+
+            </div>
+
+
+            <div class="services-grid">
+
+                <div class="service-card">
+
+                    <div class="service-icon">🛒</div>
+
+                    <h3>Compras no reconocidas</h3>
+
+                    <p>
+                        Orientación sobre las alternativas disponibles cuando
+                        encontrás una compra que no recordás haber realizado.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">💳</div>
+
+                    <h3>Cargos desconocidos</h3>
+
+                    <p>
+                        Información para comprender movimientos o cargos que
+                        aparecen en el resumen de tu tarjeta.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">📄</div>
+
+                    <h3>Revisión de movimientos</h3>
+
+                    <p>
+                        Te orientamos sobre cómo identificar información
+                        importante dentro del resumen de movimientos.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🔐</div>
+
+                    <h3>Seguridad de tarjetas</h3>
+
+                    <p>
+                        Recomendaciones generales para proteger tus datos y
+                        reducir riesgos ante operaciones sospechosas.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">☎️</div>
+
+                    <h3>Orientación para reclamos</h3>
+
+                    <p>
+                        Información general sobre los canales que normalmente
+                        deben utilizarse para efectuar un reclamo.
+                    </p>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-icon">🇦🇷</div>
+
+                    <h3>Atención nacional</h3>
+
+                    <p>
+                        Nuestro servicio se encuentra disponible para consultas
+                        provenientes de distintas provincias de Argentina.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROCESS -->
+
+    <section id="como-funciona">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <span>Atención simple</span>
+
+                <h2>¿Cómo funciona?</h2>
+
+                <p>
+                    Podés iniciar tu consulta directamente desde WhatsApp.
+                </p>
+
+            </div>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">1</div>
+
+                    <h3>Contactanos</h3>
+
+                    <p>
+                        Iniciá una conversación mediante nuestro canal de atención.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">2</div>
+
+                    <h3>Contanos tu situación</h3>
+
+                    <p>
+                        Indicá de manera general qué tipo de movimiento,
+                        cargo o inconveniente necesitás consultar.
+                    </p>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">3</div>
+
+                    <h3>Recibí orientación</h3>
+
+                    <p>
+                        Te explicamos qué alternativas y canales podés considerar
+                        según el tipo de consulta.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="disclaimer">
+
+                <strong>Información importante:</strong>
+
+                Este sitio ofrece un servicio privado e independiente de
+                orientación e información. No somos Mastercard International,
+                Mastercard Argentina, una entidad bancaria, una emisora de
+                tarjetas ni un centro de atención oficial de Mastercard.
+
+                Mastercard es una marca registrada de sus respectivos
+                titulares. Para bloqueo de tarjetas, denuncias por fraude,
+                autorización de operaciones o gestiones sobre una cuenta
+                bancaria, el titular debe comunicarse directamente con el
+                banco o entidad emisora correspondiente.
+
+                Nunca solicitamos claves bancarias, PIN, contraseñas,
+                códigos de autenticación ni datos completos de seguridad
+                de una tarjeta.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contacto">
+
+        <div class="contact-box">
+
+            <h2>
+                ¿Tenés una consulta?
+            </h2>
+
+            <p>
+                Escribinos para recibir orientación personalizada.
+                Atención para usuarios de toda Argentina.
+            </p>
+
+            <a
+               class="contact-btn"
+               href="https://wa.me/5493876570467?text=Hola%2C%20quisiera%20realizar%20una%20consulta."
+               target="_blank"
+               rel="noopener noreferrer">
+                Contáctanos por WhatsApp
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="footer-container">
+
+        <div>
+
+            <strong>Asistencia Independiente</strong>
+
+            <p>Buenos Aires, Argentina</p>
+
+            <p>
+                Teléfono:
+                <a href="tel:+5493876570467">
+                    +54 9 3876 57-0467
+                </a>
+            </p>
+
+        </div>
+
+        <div>
+
+            <strong>Atención</strong>
+
+            <p>Servicios disponibles para toda Argentina.</p>
+
+        </div>
+
+    </div>
+
+    <div class="footer-container">
+
+        <p class="footer-small">
+            Servicio privado e independiente de orientación.
+            Este sitio no pertenece ni está afiliado, patrocinado,
+            autorizado o administrado por Mastercard, bancos ni entidades
+            emisoras de tarjetas. Las marcas comerciales mencionadas
+            pertenecen a sus respectivos titulares.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- WHATSAPP FLOATING BUTTON -->
+
+<a
+   href="https://wa.me/5493876570467?text=Hola%2C%20quisiera%20realizar%20una%20consulta%20sobre%20mi%20tarjeta."
+   class="whatsapp-float"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Contactarnos por WhatsApp">
+    💬 Contáctanos
+</a>
+
+</body>
+</html>
